@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Header from "./component/Header";
 import Main from "./component/Main";
 import SignUp from "./component/SignUp";
 import SignIn from "./component/SignIn";
+import Header from "./component/header";
 
 function App() {
   const [loginStatus, setLoginStatus] = useState(false);
