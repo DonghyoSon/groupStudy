@@ -6,17 +6,22 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
-  const [userName, serUserName] = useState("");
+  const [userName, setUserName] = useState("");
 
   const signUp = () => {
+    console.log(userId);
+    console.log(userPw);
+    console.log(userName);
     const user = { userId, userPw, userName };
 
     axios
       .post("/user/signUp", user)
       .then((res) => {
         if (res.data === 1) {
+          console.log(res.data);
           alert("회원가입 완료");
         } else {
+          console.log(res.data);
           alert("회원가입 실패");
         }
       })
@@ -30,28 +35,42 @@ const SignUp = () => {
     return navigate("/");
   };
 
+  //<input onChange={set변수명} /> 불가
+  const changeUserId = (e) => {
+    const inputId = e.currentTarget.value;
+    setUserId(inputId);
+  };
+  const changeUserPw = (e) => {
+    const inputPw = e.currentTarget.value;
+    setUserPw(inputPw);
+  };
+  const changeUserName = (e) => {
+    const inputName = e.currentTarget.value;
+    setUserName(inputName);
+  };
+
   return (
     <>
       <h3>회원가입</h3>
       <div>
         <input
           type="text"
-          data={userId}
-          setData={setUserId}
+          value={userId}
+          onChange={changeUserId}
           placeholder="아이디"
         />
         <br />
         <input
           type="password"
-          data={userPw}
-          setData={setUserPw}
+          value={userPw}
+          onChange={changeUserPw}
           placeholder="비밀번호"
         />
         <br />
         <input
           type="text"
-          data={userName}
-          setData={serUserName}
+          value={userName}
+          onChange={changeUserName}
           placeholder="이름"
         />
       </div>

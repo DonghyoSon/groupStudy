@@ -14,21 +14,30 @@ const SignIn = () => {
     return navigate("/");
   };
 
+  const changeUserId = (e) => {
+    const inputId = e.currentTarget.value;
+    setUserId(inputId);
+  };
+  const changeUserPw = (e) => {
+    const inputPw = e.currentTarget.value;
+    setUserPw(inputPw);
+  };
+
   return (
     <>
       <h3>로그인</h3>
       <div>
         <input
           type="text"
-          data={userId}
-          setData={setUserId}
+          value={userId}
+          onChange={changeUserId}
           placeholder="아이디"
         />
         <br />
         <input
           type="password"
-          data={userPw}
-          setData={setUserPw}
+          value={userPw}
+          onChange={changeUserPw}
           placeholder="비밀번호"
         />
       </div>
