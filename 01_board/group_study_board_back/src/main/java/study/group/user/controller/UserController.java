@@ -18,7 +18,7 @@ public class UserController {
 	//회원가입
 	@PostMapping(value="/signUp")
 	public int insertUser(@RequestBody User user) {
-		System.out.println(user);
+//		System.out.println(user);
 		int result = userService.insertUser(user);
 		return result;
 	}
@@ -26,7 +26,7 @@ public class UserController {
 	//로그인
 	@PostMapping(value="signIn")
 	public User signIn(@RequestBody User user) {
-		System.out.println(user);
+//		System.out.println(user);
 		User selectedUser = userService.signIn(user);
 		return selectedUser;
 	}
@@ -34,7 +34,7 @@ public class UserController {
 	//회원정보 수정
 	@PostMapping(value="modifyUser")
 	public int modifyUser(@RequestBody User user) {
-		System.out.println(user);
+//		System.out.println(user);
 		int result = userService.modifyUser(user);
 		return result;
 	}
