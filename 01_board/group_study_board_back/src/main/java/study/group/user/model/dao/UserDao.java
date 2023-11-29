@@ -10,4 +10,10 @@ public interface UserDao {
 	//회원가입
 	int insertUser(User user);
 
+	//로그인
+	User signIn(User user);
+
+	//회원정보 수정
+	int modifyUser(User user);
+
 }

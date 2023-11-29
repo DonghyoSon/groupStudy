@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Main = () => {
+const Main = (props) => {
   return (
     <>
       <h3>메인페이지</h3>

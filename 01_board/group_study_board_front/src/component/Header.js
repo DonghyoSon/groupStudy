@@ -4,6 +4,8 @@ const Header = (props) => {
   const loginStatus = props.loginStatus;
   const setLoginStatus = props.setLoginStatus;
 
+  console.log("로그인 상태:", loginStatus);
+
   return (
     <header>
       <Member loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
@@ -15,6 +17,11 @@ const Member = (props) => {
   const loginStatus = props.loginStatus;
   const setLoginStatus = props.setLoginStatus;
 
+  //로그아웃 함수
+  const signOut = () => {
+    setLoginStatus(false);
+  };
+
   return (
     <>
       {loginStatus === false ? (
@@ -22,7 +29,7 @@ const Member = (props) => {
           <span>
             <Link to="/signIn">로그인</Link>
           </span>
-          <span>&nbsp;</span>
+          &nbsp;
           <span>
             <Link to="/signUp">회원가입</Link>
           </span>
@@ -31,11 +38,13 @@ const Member = (props) => {
       ) : (
         <>
           <span>
-            <Link to="#">마이페이지</Link>
+            <Link to="/myPage">마이페이지</Link>
           </span>
-          <span>&nbsp;</span>
+          &nbsp;
           <span>
-            <Link to="#">로그아웃</Link>
+            <Link to="#" onClick={signOut}>
+              로그아웃
+            </Link>
           </span>
           <hr></hr>
         </>

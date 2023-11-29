@@ -15,4 +15,15 @@ public class UserService {
 	public int insertUser(User user) {
 		return userDao.insertUser(user);
 	}
+
+	//로그인 
+	public User signIn(User user) {
+		User selectedUser = userDao.signIn(user);
+		return selectedUser;
+	}
+
+	//회원정보 수정
+	public int modifyUser(User user) {		
+		return userDao.modifyUser(user);
+	}
 }

@@ -8,24 +8,26 @@ const SignUp = () => {
   const [userPw, setUserPw] = useState("");
   const [userName, setUserName] = useState("");
 
+  //회원가입 함수
   const signUp = () => {
     console.log(userId);
     console.log(userPw);
     console.log(userName);
-    const user = { userId, userPw, userName };
+    const user = { userId, userPw, userName }; //서버로 전달하기 위해, 유저 정보를 객체화
 
     axios
       .post("/user/signUp", user)
       .then((res) => {
+        console.log(res.data);
         if (res.data === 1) {
-          console.log(res.data);
           alert("회원가입 완료");
+          navigate("/");
         } else {
-          console.log(res.data);
           alert("회원가입 실패");
         }
       })
       .catch((res) => {
+        alert("회원가입 실패");
         console.log(res.data);
       });
   };
@@ -35,7 +37,7 @@ const SignUp = () => {
     return navigate("/");
   };
 
-  //<input onChange={set변수명} /> 불가
+  //<input>태그에 입력되는 값을 세팅하기 위한 함수들 /<input onChange={set변수명} /> 불가
   const changeUserId = (e) => {
     const inputId = e.currentTarget.value;
     setUserId(inputId);
