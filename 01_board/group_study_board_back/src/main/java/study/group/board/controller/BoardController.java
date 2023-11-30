@@ -1,5 +1,7 @@
 package study.group.board.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,8 +23,15 @@ public class BoardController {
 	public int insertBoard(@RequestBody Board board) //@GetMapping으로 @RequestBody은 되지 않는듯 함 
 	{
 		System.out.println(board);
-//		int result = boardService.insertBoard(board);
-		return 0;
+		int result = boardService.insertBoard(board);
+		return result;
+	}
+	
+	//게시글 목록 출력
+	@GetMapping(value="/boardList")
+	public List boardList() {
+		List boardList = boardService.boardList();
+		return boardList;
 	}
 	
 }

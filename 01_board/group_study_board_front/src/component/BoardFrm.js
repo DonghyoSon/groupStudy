@@ -8,17 +8,20 @@ const BoardFrm = (props) => {
   const [boardTitle, setBoardTitle] = useState("");
   const [boardContent, setBoardContent] = useState("");
 
-  //백으로 글쓰기 내용 전송
+  //백으로 글쓰기 내용 전송 함수
   const insertBoard = () => {
     const userNo = user.userNo;
-    const board = { boardTitle, boardContent, userNo };
+    const board = { boardTitle, boardContent, userNo }; //{boardTitle, boardContent, user.userNo}는 불가능
     axios
       .post("/board/insertBoard", board)
       .then((res) => {
         console.log(res.data);
+        alert("게시글 등록 완료");
+        navigate("/boardList");
       })
       .catch((res) => {
         console.log(res.data);
+        alert("게시글 등록 실패");
       });
   };
 
