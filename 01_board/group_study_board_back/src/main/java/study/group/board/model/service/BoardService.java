@@ -28,4 +28,9 @@ public class BoardService {
 	public Board boardView(int boardNo) {
 		return boardDao.boardView(boardNo);
 	}
+
+	//게시글 삭제
+	public int boardDelete(int boardNo) {
+		return boardDao.boardDelete(boardNo);
+	}
 }

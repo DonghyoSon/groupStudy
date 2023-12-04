@@ -42,4 +42,11 @@ public class BoardController {
 		return board;
 	}
 	
+	//게시글 삭제
+	@GetMapping(value="/boardDelete/{boardNo}")
+	public int boardDelete(@PathVariable int boardNo) {
+		int result = boardService.boardDelete(boardNo);
+		return result;
+	}
+	
 }

@@ -22,4 +22,9 @@
 		left join user_tbl using(user_no)
 		where board_no=#{boardNo}
   	</select>
+  	
+  	<!-- 게시글 삭제 -->
+  	<delete id="boardDelete">
+  		delete from board_tbl where board_no=#{boardNo}
+  	</delete>
 </mapper>

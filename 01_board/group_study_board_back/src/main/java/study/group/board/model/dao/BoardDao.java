@@ -18,4 +18,7 @@ public interface BoardDao {
 	//게시글 상세 보기
 	Board boardView(int boardNo);
 
+	//게시글 삭제
+	int boardDelete(int boardNo);
+
 }

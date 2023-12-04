@@ -30,6 +30,22 @@ const BoardView = (props) => {
     navigate("/boardList");
   };
 
+  //게시글을 삭제하는 함수
+  const boardDelete = () => {
+    if (window.confirm("게시글을 삭제하시겠습니까?")) {
+    }
+    axios
+      .get("/board/boardDelete/" + boardNo)
+      .then((res) => {
+        console.log(res.data);
+        alert("삭제가 완료되었습니다.");
+        navigate("/boardList");
+      })
+      .catch((res) => {
+        console.log(res.data);
+      });
+  };
+
   return (
     <>
       <h3>게시판</h3>
@@ -53,7 +69,7 @@ const BoardView = (props) => {
             {user.userNo === board.userNo ? (
               <>
                 <button>수정</button>&nbsp;
-                <button>삭제</button>&nbsp;
+                <button onClick={boardDelete}>삭제</button>&nbsp;
               </>
             ) : (
               ""
