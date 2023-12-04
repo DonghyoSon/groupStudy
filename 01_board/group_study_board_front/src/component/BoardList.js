@@ -6,6 +6,7 @@ import axios from "axios";
 
 const BoardList = (props) => {
   const user = props.user;
+  const loginStatus = props.loginStatus;
   const navigate = useNavigate();
   const [boardList, setBoardList] = useState([]);
 
@@ -49,7 +50,7 @@ const BoardList = (props) => {
         })}
       </table>
       <div>
-        <button onClick={write}>글쓰기</button>
+        {loginStatus === true ? <button onClick={write}>글쓰기</button> : ""}
         &nbsp;
         <button onClick={toMain}>메인으로</button>
       </div>

@@ -17,7 +17,7 @@
   	
   	<!-- 게시글 상세 보기 -->
   	<select id="boardView" resultType="board">
-  		select board_no, board_title, board_content, user_name, board_regdate 
+  		select *
 		from board_tbl
 		left join user_tbl using(user_no)
 		where board_no=#{boardNo}

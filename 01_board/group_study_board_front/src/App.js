@@ -19,7 +19,10 @@ function App() {
       <Header loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
       <div>
         <Routes>
-          <Route path="/" element={<Main loginStatus={loginStatus} />} />
+          <Route
+            path="/"
+            element={<Main user={user} loginStatus={loginStatus} />}
+          />
           <Route path="/signUp" element={<SignUp />} />
           <Route
             path="/signIn"
@@ -28,9 +31,15 @@ function App() {
             }
           />
           <Route path="/myPage" element={<MyPage user={user} />} />
-          <Route path="/boardList" element={<BoardList user={user} />} />
+          <Route
+            path="/boardList"
+            element={<BoardList user={user} loginStatus={loginStatus} />}
+          />
           <Route path="/boardFrm" element={<BoardFrm user={user} />} />
-          <Route path="/boardView" element={<BoardView />} />
+          <Route
+            path="/boardView"
+            element={<BoardView user={user} loginStatus={loginStatus} />}
+          />
         </Routes>
       </div>
     </div>

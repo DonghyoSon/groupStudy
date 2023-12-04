@@ -4,7 +4,9 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const BoardView = () => {
+const BoardView = (props) => {
+  const user = props.user;
+  const loginStatus = props.loginStatus;
   const navigate = useNavigate();
   const location = useLocation();
   const boardNo = location.state.boardNo;
@@ -46,8 +48,20 @@ const BoardView = () => {
         </tbody>
       </table>
       <div>
-        <button>수정</button>&nbsp;
-        <button>삭제</button>&nbsp;
+        {loginStatus === true ? (
+          <>
+            {user.userNo === board.userNo ? (
+              <>
+                <button>수정</button>&nbsp;
+                <button>삭제</button>&nbsp;
+              </>
+            ) : (
+              ""
+            )}
+          </>
+        ) : (
+          ""
+        )}
         <button onClick={toBoardList}>목록으로</button>
       </div>
     </>
