@@ -15,5 +15,6 @@ public class Board {
 	private String boardTitle;
 	private String boardContent;
 	private int userNo;
+	private String userName; //board_tbl과 user_tbl의 join으로 출력되는 컬럼 user_name에 대한 변수
 	private String boardRegDate;
 }

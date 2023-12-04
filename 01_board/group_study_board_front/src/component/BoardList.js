@@ -63,7 +63,7 @@ const BoardListObj = (props) => {
       <tbody>
         <td>{boardList.boardNo}</td>
         <td>{boardList.boardTitle}</td>
-        <td>{boardList.userNo}</td>
+        <td>{boardList.userName}</td>
         <td>{boardList.boardRegDate}</td>
       </tbody>
     </>
