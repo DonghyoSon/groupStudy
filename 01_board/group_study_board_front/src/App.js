@@ -8,6 +8,7 @@ import MyPage from "./component/MyPage";
 import Board from "./component/BoardList";
 import BoardList from "./component/BoardList";
 import BoardFrm from "./component/BoardFrm";
+import BoardView from "./component/BoardView";
 
 function App() {
   const [loginStatus, setLoginStatus] = useState(false); //로그인된 상태를 파악하기 위해 필요
@@ -29,6 +30,7 @@ function App() {
           <Route path="/myPage" element={<MyPage user={user} />} />
           <Route path="/boardList" element={<BoardList user={user} />} />
           <Route path="/boardFrm" element={<BoardFrm user={user} />} />
+          <Route path="/boardView" element={<BoardView />} />
         </Routes>
       </div>
     </div>

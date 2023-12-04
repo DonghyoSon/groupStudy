@@ -23,4 +23,9 @@ public class BoardService {
 		List boardList = boardDao.boardList();
 		return boardList;
 	}
+
+	//게시글 상세 보기
+	public Board boardView(int boardNo) {
+		return boardDao.boardView(boardNo);
+	}
 }

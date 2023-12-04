@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const BoardList = (props) => {
@@ -58,11 +59,18 @@ const BoardList = (props) => {
 
 const BoardListObj = (props) => {
   const boardList = props.boardList;
+  const navigate = useNavigate();
+
+  //게시글 상세보기로 이동하는 함수
+  const toBoardView = () => {
+    navigate("/boardView", { state: { boardNo: boardList.boardNo } });
+  };
+
   return (
     <>
       <tbody>
         <td>{boardList.boardNo}</td>
-        <td>{boardList.boardTitle}</td>
+        <td onClick={toBoardView}>{boardList.boardTitle}</td>
         <td>{boardList.userName}</td>
         <td>{boardList.boardRegDate}</td>
       </tbody>

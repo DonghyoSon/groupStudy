@@ -15,4 +15,7 @@ public interface BoardDao {
 	//게시글 목록 출력
 	List boardList();
 
+	//게시글 상세 보기
+	Board boardView(int boardNo);
+
 }

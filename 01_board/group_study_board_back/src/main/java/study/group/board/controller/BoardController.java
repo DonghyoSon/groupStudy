@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,13 @@ public class BoardController {
 	public List boardList() {
 		List boardList = boardService.boardList();
 		return boardList;
+	}
+	
+	//게시글 상세 보기
+	@GetMapping(value="/boardView/{boardNo}")
+	public Board boardView(@PathVariable int boardNo) {
+		Board board = boardService.boardView(boardNo);
+		return board;
 	}
 	
 }
