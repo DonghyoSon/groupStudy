@@ -27,4 +27,9 @@
   	<delete id="boardDelete">
   		delete from board_tbl where board_no=#{boardNo}
   	</delete>
+  	
+  	<!-- 게시글 수정 -->
+  	<update id="boardModify">
+  		update board_tbl set board_title=#{boardTitle}, board_content=#{boardContent} where board_no=#{boardNo}
+  	</update>
 </mapper>

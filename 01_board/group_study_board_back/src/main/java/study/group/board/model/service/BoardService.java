@@ -33,4 +33,9 @@ public class BoardService {
 	public int boardDelete(int boardNo) {
 		return boardDao.boardDelete(boardNo);
 	}
+
+	//게시글 수정
+	public int boardModify(int boardNo) {
+		return boardDao.boardModify(boardNo);
+	}
 }

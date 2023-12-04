@@ -49,4 +49,11 @@ public class BoardController {
 		return result;
 	}
 	
+	//게시글 수정
+	@GetMapping(value="/boardModify/{boardNo}")
+	public int boardModify(@PathVariable int boardNo) {
+		int result = boardService.boardModify(boardNo);
+		return result;
+	}
+	
 }

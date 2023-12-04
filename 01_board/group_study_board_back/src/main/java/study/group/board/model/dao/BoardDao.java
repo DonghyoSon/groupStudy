@@ -21,4 +21,7 @@ public interface BoardDao {
 	//게시글 삭제
 	int boardDelete(int boardNo);
 
+	//게스글 수정
+	int boardModify(int boardNo);
+
 }

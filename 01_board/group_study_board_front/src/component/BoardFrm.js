@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const BoardFrm = (props) => {
   const user = props.user;
@@ -43,7 +44,7 @@ const BoardFrm = (props) => {
   return (
     <>
       <h3>게시판</h3>
-      <table>
+      <table border={1}>
         <tbody>
           <tr>
             <td>
