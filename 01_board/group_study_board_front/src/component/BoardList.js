@@ -43,10 +43,10 @@ const BoardList = (props) => {
             <th>등록일</th>
           </tr>
         </thead>
+        {boardList.map((boardList, index) => {
+          return <BoardListObj key={"board" + index} boardList={boardList} />;
+        })}
       </table>
-      {boardList.map((board, index) => {
-        return <BoardListObj key={"board" + index} boardList={boardList} />;
-      })}
       <div>
         <button onClick={write}>글쓰기</button>
         &nbsp;
