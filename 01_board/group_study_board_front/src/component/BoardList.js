@@ -30,7 +30,7 @@ const BoardList = (props) => {
 
   //글쓰기 함수
   const write = () => {
-    navigate("/boardFrm");
+    navigate("/boardWrite");
   };
 
   return (
@@ -50,8 +50,13 @@ const BoardList = (props) => {
         })}
       </table>
       <div>
-        {loginStatus === true ? <button onClick={write}>글쓰기</button> : ""}
-        &nbsp;
+        {loginStatus === true ? (
+          <>
+            <button onClick={write}>글쓰기</button>&nbsp;
+          </>
+        ) : (
+          ""
+        )}
         <button onClick={toMain}>메인으로</button>
       </div>
     </>
