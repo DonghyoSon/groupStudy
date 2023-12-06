@@ -12,16 +12,17 @@ const BoardFrm = (props) => {
   const changeBoardTitle = (e) => {
     const inputTitle = e.currentTarget.value;
     setBoardTitle(inputTitle);
-    console.log(boardTitle);
+    // console.log(boardTitle);
   };
   const changeBoardContent = (e) => {
     const inputContent = e.currentTarget.value;
     setBoardContent(inputContent);
-    console.log(boardContent);
+    // console.log(boardContent);
   };
 
   return (
     <>
+      <h3>게시판</h3>
       <table border={1}>
         <tbody>
           <tr>

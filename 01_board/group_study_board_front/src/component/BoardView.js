@@ -47,8 +47,17 @@ const BoardView = (props) => {
   };
 
   //게시글을 수정하는 함수
-  const boardModify = () => {
-    navigate("/boardModify", { state: { board: { board: board } } });
+  const toBoardModify = () => {
+    console.log(board.boardTitle);
+    console.log(board.boardContent);
+    console.log(board.userNo);
+    navigate("/boardModify", {
+      state: {
+        boardTitle: { boardTitle: board.boardTitle },
+        boardContent: { boardContent: board.boardContent },
+        userNo: { userNo: board.userNo },
+      },
+    });
   };
 
   return (
@@ -73,7 +82,7 @@ const BoardView = (props) => {
           <>
             {user.userNo === board.userNo ? (
               <>
-                <button onClick={boardModify}>수정</button>&nbsp;
+                <button onClick={toBoardModify}>수정</button>&nbsp;
                 <button onClick={boardDelete}>삭제</button>&nbsp;
               </>
             ) : (

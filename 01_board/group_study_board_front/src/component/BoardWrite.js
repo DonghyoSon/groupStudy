@@ -33,7 +33,6 @@ const BoardWrite = (props) => {
 
   return (
     <>
-      <h3>게시판</h3>
       <BoardFrm
         buttonEvent={insertBoard}
         boardTitle={boardTitle}
