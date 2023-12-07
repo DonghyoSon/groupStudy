@@ -28,7 +28,9 @@ const BoardWrite = (props) => {
 
   //글쓰기 취소 함수
   const cancel = () => {
-    navigate("/boardList");
+    if (window.confirm("게시글 작성을 취소하시겠습니까?")) {
+      navigate("/boardList");
+    }
   };
 
   return (
