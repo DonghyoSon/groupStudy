@@ -50,9 +50,9 @@ public class BoardController {
 	}
 	
 	//게시글 수정
-	@GetMapping(value="/boardModify/{boardNo}")
-	public int boardModify(@PathVariable int boardNo) {
-		int result = boardService.boardModify(boardNo);
+	@PostMapping(value="/modifyBoard")
+	public int boardModify(@RequestBody Board modifiedBoard) {
+		int result = boardService.boardModify(modifiedBoard);
 		return result;
 	}
 	

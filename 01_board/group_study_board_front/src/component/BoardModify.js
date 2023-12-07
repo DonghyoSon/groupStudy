@@ -1,25 +1,45 @@
 import { useLocation } from "react-router-dom";
 import BoardFrm from "./BoardFrm";
 import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BoardModify = () => {
+  const navigate = useNavigate();
   const location = useLocation();
-  const boardTitle = location.state.boardTitle;
-  const boardContent = location.state.boardContent;
-  const userNo = location.state.userNo;
-
-  console.log(boardTitle);
-  console.log(boardContent);
-  console.log(userNo);
+  const board = location.state.board;
+  console.log(board);
+  const boardNo = board.boardNo;
+  const [boardTitle, setBoardTitle] = useState(board.boardTitle);
+  const [boardContent, setBoardContent] = useState(board.boardContent);
 
   //게시글 수정 함수
   const modifyBoard = () => {
-    axios.get().then().catch();
+    console.log(boardTitle);
+    console.log(boardContent);
+    console.log(boardNo);
+    const modifiedBoard = { boardNo, boardTitle, boardContent };
+    axios
+      .post("/board/modifyBoard", modifiedBoard)
+      .then((res) => {
+        console.log(res.data);
+        alert("게시글 수정이 완료되었습니다.");
+        navigate("/boardLIst");
+      })
+      .catch((res) => {
+        console.log(res.data);
+        alert("게시글 수정을 실패하였습니다.");
+      });
   };
 
   return (
     <>
-      <BoardFrm boardTitle={boardTitle} boardContent={boardContent} />
+      <BoardFrm
+        boardTitle={boardTitle}
+        setBoardTitle={setBoardTitle} //set변수를 넘기지 않으면 수정이 되지 않음
+        boardContent={boardContent}
+        setBoardContent={setBoardContent}
+      />
       <div>
         <button onClick={modifyBoard}>수정하기</button>&nbsp;
         <button>취소</button>

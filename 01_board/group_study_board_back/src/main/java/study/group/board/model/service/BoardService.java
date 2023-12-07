@@ -35,7 +35,7 @@ public class BoardService {
 	}
 
 	//게시글 수정
-	public int boardModify(int boardNo) {
-		return boardDao.boardModify(boardNo);
+	public int boardModify(Board modifiedBoard) {
+		return boardDao.boardModify(modifiedBoard);
 	}
 }

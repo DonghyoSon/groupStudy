@@ -48,16 +48,8 @@ const BoardView = (props) => {
 
   //게시글을 수정하는 함수
   const toBoardModify = () => {
-    console.log(board.boardTitle);
-    console.log(board.boardContent);
-    console.log(board.userNo);
-    navigate("/boardModify", {
-      state: {
-        boardTitle: { boardTitle: board.boardTitle },
-        boardContent: { boardContent: board.boardContent },
-        userNo: { userNo: board.userNo },
-      },
-    });
+    console.log(board);
+    navigate("/boardModify", { state: { board: board } }); //{state: {board: {board: board}}}로 잘못 전송하여 board객체 자체는 넘어가나, board 내부의 값은 불러오지 못해 한 참을 헤맴
   };
 
   return (
