@@ -17,19 +17,26 @@ const BoardModify = () => {
   const modifyBoard = () => {
     console.log(boardTitle);
     console.log(boardContent);
-    console.log(boardNo);
+    console.log(boardNo.boardNo);
     const modifiedBoard = { boardNo, boardTitle, boardContent };
     axios
       .post("/board/modifyBoard", modifiedBoard)
       .then((res) => {
         console.log(res.data);
         alert("게시글 수정이 완료되었습니다.");
-        navigate("/boardLIst");
+        navigate("/boardView", { state: { boardNo: board.boardNo } }); //state로 boardNo값을 넘겨, 해당 글로 되돌아감
       })
       .catch((res) => {
         console.log(res.data);
         alert("게시글 수정을 실패하였습니다.");
       });
+  };
+
+  //수정 취소 함수
+  const cancelModify = () => {
+    if (window.confirm("게시글 수정을 취소하시겠습니까?")) {
+      navigate("/boardView", { state: { boardNo: board.boardNo } }); //state로 boardNo값을 넘겨, 해당 글로 되돌아감
+    }
   };
 
   return (
@@ -42,7 +49,7 @@ const BoardModify = () => {
       />
       <div>
         <button onClick={modifyBoard}>수정하기</button>&nbsp;
-        <button>취소</button>
+        <button onClick={cancelModify}>취소</button>
       </div>
     </>
   );
