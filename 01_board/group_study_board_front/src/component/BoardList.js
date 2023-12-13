@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Pagination from "./Pagination";
 
 const BoardList = (props) => {
   const user = props.user;
@@ -10,7 +11,13 @@ const BoardList = (props) => {
   const navigate = useNavigate();
   const [boardList, setBoardList] = useState([]);
 
+  //페이지 네비게이션에 필요한 변수
+  const [reqPage, setReqPage] = useState(1); //페이지는 1로 시작
+  const [page, setPage] = useState({});
+
   //게시글 페이지가 로드 되면 백으로부터 게시글 리스트를 받아옴
+  /*
+  //페이지 기능 미포함
   useEffect(() => {
     axios
       .get("/board/boardList")
@@ -22,6 +29,20 @@ const BoardList = (props) => {
         console.log(res.data);
       });
   }, []);
+  */
+  //페이지 기능 포함
+  useEffect(() => {
+    axios
+      .get("/board/boardList/" + reqPage)
+      .then((res) => {
+        console.log(res.data);
+        setBoardList(res.data.boardList);
+        setPage(res.data.p);
+      })
+      .catch((res) => {
+        console.logo(res.data);
+      });
+  }, [reqPage]); //reqPage가 변경될 때마다 서버로부터 게시물 목록을 받아옴
 
   //메인으로 이동하는 함수
   const toMain = () => {
@@ -58,6 +79,9 @@ const BoardList = (props) => {
           ""
         )}
         <button onClick={toMain}>메인으로</button>
+      </div>
+      <div>
+        <Pagination reqPage={reqPage} setReqPage={setReqPage} page={page} />
       </div>
     </>
   );

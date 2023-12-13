@@ -7,12 +7,25 @@
   		insert into board_tbl values(board_seq.nextval, #{boardTitle}, #{boardContent}, #{userNo}, default)
   	</insert>
   	
-  	<!-- 게시글 목록 출력 -->
-  	<select id="boardList" resultType="board">
+  	<!-- 게시글 목록 출력(페이지 기능 미포함) -->
+  	<!-- <select id="boardList" resultType="board">
   		select board_no, board_title, user_name, board_regdate 
 		from board_tbl 
-		left join user_tbl using(user_no) <!-- 게시글 작성자 user_name을 출력하기 위해 user_tbl과 join -->
-		order by board_regdate desc
+		left join user_tbl using(user_no) //게시글 작성자 user_name을 출력하기 위해 user_tbl과 join
+		order by board_no desc
+  	</select> -->
+  	<!-- 게시글 목록 출력(페이지 기능 포함) -->
+  	<select id="totalCount" resultType="int"> <!-- 전체 게시물 수 -->
+  		select count(*) from board_tbl
+  	</select>
+  	<select id="boardList" resultType="board">
+  		select * from
+	  		(select rownum as rnum, b.* from 
+		  		(select board_no, board_title, board_content, user_name, board_regdate 
+				from board_tbl 
+				left join user_tbl using(user_no)
+				order by board_no desc)b) 
+		where rnum between #{start} and #{end}
   	</select>
   	
   	<!-- 게시글 상세 보기 -->

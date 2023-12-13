@@ -1,6 +1,7 @@
 package study.group.board.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,11 +29,17 @@ public class BoardController {
 		return result;
 	}
 	
-	//게시글 목록 출력
-	@GetMapping(value="/boardList")
+	//게시글 목록 출력(페이지 기능 미포함)
+	/*@GetMapping(value="/boardList")
 	public List boardList() {
 		List boardList = boardService.boardList();
 		return boardList;
+	}*/
+	//게시글 목록 출력(페이지 기능 포함)
+	@GetMapping(value="/boardList/{reqPage}")
+	public Map boardList(@PathVariable int reqPage) {
+		Map map = boardService.boardList(reqPage);
+		return map;
 	}
 	
 	//게시글 상세 보기
