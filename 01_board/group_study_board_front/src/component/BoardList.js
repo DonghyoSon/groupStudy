@@ -40,7 +40,7 @@ const BoardList = (props) => {
         setPage(res.data.p);
       })
       .catch((res) => {
-        console.logo(res.data);
+        console.log(res.data);
       });
   }, [reqPage]); //reqPage가 변경될 때마다 서버로부터 게시물 목록을 받아옴
 
