@@ -13,7 +13,7 @@ const Pagination = (props) => {
     setReqPage(changePage);
   };
 
-  //현재 페이지를 굵게 표시하는 함수 - React에서 HTML에 인라인 방식으로 style을 지정하는 방법
+  //현재 페이지를 굵게 표시하는 변수 - React에서 HTML에 인라인 방식으로 style을 지정하는 방법
   const fontBold = {
     fontWeight: "bold",
   };
