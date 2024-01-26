@@ -42,7 +42,7 @@ const Member = (props) => {
           </span>
           &nbsp;
           <span>
-            <Link to="#" onClick={signOut}>
+            <Link to="/" onClick={signOut}>
               로그아웃
             </Link>
           </span>
