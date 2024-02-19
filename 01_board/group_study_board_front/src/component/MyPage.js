@@ -43,7 +43,7 @@ const MyPage = (props) => {
         아이디: <input type="text" value={user.userId} disabled />
         <br />
         비밀번호:
-        <input type="text" onChange={changeUserPw} placeholder={user.userPw} />
+        <input type="password" onChange={changeUserPw} value={user.userPw} />
         <br />
         이름: <input type="text" value={user.userName} disabled />
       </div>
