@@ -33,17 +33,17 @@ const BoardView = (props) => {
   //게시글을 삭제하는 함수
   const boardDelete = () => {
     if (window.confirm("게시글을 삭제하시겠습니까?")) {
+      axios
+        .get("/board/boardDelete/" + boardNo)
+        .then((res) => {
+          console.log(res.data);
+          alert("삭제가 완료되었습니다.");
+          navigate("/boardList");
+        })
+        .catch((res) => {
+          console.log(res.data);
+        });
     }
-    axios
-      .get("/board/boardDelete/" + boardNo)
-      .then((res) => {
-        console.log(res.data);
-        alert("삭제가 완료되었습니다.");
-        navigate("/boardList");
-      })
-      .catch((res) => {
-        console.log(res.data);
-      });
   };
 
   //게시글을 수정하는 함수
