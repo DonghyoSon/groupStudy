@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import "./board.css";
 
 const BoardView = (props) => {
   const user = props.user;
@@ -55,21 +56,23 @@ const BoardView = (props) => {
   return (
     <>
       <h3>게시판</h3>
-      <table border={1}>
+      <table>
         <tbody>
           <tr>
-            <td rowSpan={2}>{board.boardTitle}</td>
-            <td>{board.boardRegDate}</td>
+            <td className="boardTitle">{board.boardTitle}</td>
           </tr>
           <tr>
-            <td>{board.userName}</td>
+            <td className="regDate">{board.boardRegDate}</td>
           </tr>
           <tr>
-            <td colSpan={2}>{board.boardContent}</td>
+            <td className="boardWriter">{board.userName}</td>
+          </tr>
+          <tr>
+            <td className="boardContent">{board.boardContent}</td>
           </tr>
         </tbody>
       </table>
-      <div>
+      <div className="board-btn">
         {loginStatus === true ? (
           <>
             {user.userNo === board.userNo ? (

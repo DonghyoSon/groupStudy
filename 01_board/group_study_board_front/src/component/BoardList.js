@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Pagination from "./Pagination";
+import "./board.css";
 
 const BoardList = (props) => {
   const user = props.user;
@@ -57,31 +58,33 @@ const BoardList = (props) => {
   return (
     <>
       <h3>게시판</h3>
-      <table border={1}>
-        <thead>
-          <tr>
-            <th>글번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>등록일</th>
-          </tr>
-        </thead>
-        {boardList.map((boardList, index) => {
-          return <BoardListObj key={"board" + index} boardList={boardList} />;
-        })}
-      </table>
-      <div>
-        {loginStatus === true ? (
-          <>
-            <button onClick={write}>글쓰기</button>&nbsp;
-          </>
-        ) : (
-          ""
-        )}
-        <button onClick={toMain}>메인으로</button>
-      </div>
-      <div>
-        <Pagination reqPage={reqPage} setReqPage={setReqPage} page={page} />
+      <div className="whole-rap">
+        <table>
+          <thead>
+            <tr>
+              <th>글번호</th>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>등록일</th>
+            </tr>
+          </thead>
+          {boardList.map((boardList, index) => {
+            return <BoardListObj key={"board" + index} boardList={boardList} />;
+          })}
+        </table>
+        <div className="board-btn">
+          {loginStatus === true ? (
+            <>
+              <button onClick={write}>글쓰기</button>&nbsp;
+            </>
+          ) : (
+            ""
+          )}
+          <button onClick={toMain}>메인으로</button>
+        </div>
+        <div className="pagenation">
+          <Pagination reqPage={reqPage} setReqPage={setReqPage} page={page} />
+        </div>
       </div>
     </>
   );

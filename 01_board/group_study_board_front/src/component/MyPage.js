@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./account.css";
 
 const MyPage = (props) => {
   const navigate = useNavigate();
@@ -40,18 +41,26 @@ const MyPage = (props) => {
     <>
       <h3>마이페이지</h3>
       <div>
-        아이디: <input type="text" value={user.userId} disabled />
+        아이디:{" "}
+        <input type="text" value={user.userId} disabled className="input-id" />
         <br />
-        비밀번호:
+        비밀번호:{" "}
         <input
           type="password"
           onChange={changeUserPw}
           placeholder={user.userPw}
+          className="input-password"
         />
         <br />
-        이름: <input type="text" value={user.userName} disabled />
+        이름:{" "}
+        <input
+          type="text"
+          value={user.userName}
+          disabled
+          className="input-name"
+        />
       </div>
-      <div>
+      <div className="btn">
         <button onClick={modifyUser}>내 정보 수정</button>
         &nbsp;
         <button onClick={toMain}>메인으로</button>

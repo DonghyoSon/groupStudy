@@ -1,0 +1,27 @@
+/*로그인 input*/
+.input-area {
+  width: 200px;
+}
+.input-id,
+.input-password,
+.input-name {
+  border: 1px solid #333;
+  width: 180px;
+  height: 25px;
+  margin-bottom: 5px;
+}
+
+/*버튼*/
+.btn {
+  margin-top: 5px;
+  width: 190px;
+  text-align: right;
+}
+.btn > button {
+  background-color: #ffe2e2;
+  border-style: hidden;
+}
+.btn > button:hover {
+  cursor: pointer;
+  background-color: #ffbaba;
+}

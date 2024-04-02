@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import "./board.css";
 
 const BoardFrm = (props) => {
   const boardTitle = props.boardTitle;
@@ -23,10 +24,10 @@ const BoardFrm = (props) => {
   return (
     <>
       <h3>게시판</h3>
-      <table border={1}>
+      <table>
         <tbody>
           <tr>
-            <td>
+            <td className="titleArea">
               <input
                 type="text"
                 value={boardTitle}
@@ -36,7 +37,7 @@ const BoardFrm = (props) => {
             </td>
           </tr>
           <tr>
-            <td>
+            <td className="contentArea">
               <textarea
                 value={boardContent}
                 onChange={changeBoardContent}

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import "./account.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -54,12 +55,13 @@ const SignUp = () => {
   return (
     <>
       <h3>회원가입</h3>
-      <div>
+      <div className="input-area">
         <input
           type="text"
           value={userId}
           onChange={changeUserId}
           placeholder="아이디"
+          className="input-id"
         />
         <br />
         <input
@@ -67,6 +69,7 @@ const SignUp = () => {
           value={userPw}
           onChange={changeUserPw}
           placeholder="비밀번호"
+          className="input-password"
         />
         <br />
         <input
@@ -74,9 +77,10 @@ const SignUp = () => {
           value={userName}
           onChange={changeUserName}
           placeholder="이름"
+          className="input-name"
         />
       </div>
-      <div>
+      <div className="btn">
         <button onClick={signUp}>회원가입</button>
         &nbsp;
         <button onClick={toMain}>취소</button>

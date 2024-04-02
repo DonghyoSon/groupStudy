@@ -42,7 +42,7 @@ const BoardWrite = (props) => {
         boardContent={boardContent}
         setBoardContent={setBoardContent}
       />
-      <div>
+      <div className="board-btn">
         <button onClick={insertBoard}>등록</button>
         &nbsp;
         <button onClick={cancel}>취소</button>
