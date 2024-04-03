@@ -47,7 +47,7 @@ const BoardModify = () => {
         boardContent={boardContent}
         setBoardContent={setBoardContent}
       />
-      <div>
+      <div className="board-btn">
         <button onClick={modifyBoard}>수정하기</button>&nbsp;
         <button onClick={cancelModify}>취소</button>
       </div>

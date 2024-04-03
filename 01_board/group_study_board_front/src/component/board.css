@@ -97,3 +97,8 @@ textarea {
   color: #939393;
   cursor: pointer;
 }
+.inside-pagenation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

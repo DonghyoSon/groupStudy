@@ -102,10 +102,12 @@ const BoardListObj = (props) => {
   return (
     <>
       <tbody>
-        <td>{boardList.boardNo}</td>
-        <td onClick={toBoardView}>{boardList.boardTitle}</td>
-        <td>{boardList.userName}</td>
-        <td>{boardList.boardRegDate}</td>
+        <tr>
+          <td>{boardList.boardNo}</td>
+          <td onClick={toBoardView}>{boardList.boardTitle}</td>
+          <td>{boardList.userName}</td>
+          <td>{boardList.boardRegDate}</td>
+        </tr>
       </tbody>
     </>
   );
